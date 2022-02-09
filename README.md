@@ -12,7 +12,7 @@ we'll learn about [chroot](https://en.wikipedia.org/wiki/Chroot),
 
 # Passing the first stage
 
-The entry point for your Docker implementation is in `src/main.rs`. Study and
+The entry point for your Docker implementation is `src/main.rs`. Study and
 uncomment the relevant code, and push your changes to pass the first stage:
 
 ```sh
@@ -31,26 +31,18 @@ That's all!
 1. Commit your changes and run `git push origin master` to submit your solution
    to CodeCrafters. Test output will be streamed to your terminal.
 
-# Running your program locally
+### Running your program locally
 
 Since you'll need to use linux-specific syscalls in this challenge, we'll run
-your code _inside_ a docker container.
+your code _inside_ a Docker container.
 
-```sh
-docker build -t my_docker . && docker run --cap-add="SYS_ADMIN" my_docker run some_image /usr/local/bin/docker-explorer echo hey
-```
-
-(The `--cap-add="SYS_ADMIN"` flag is required to create
-[PID Namespaces](https://man7.org/linux/man-pages/man7/pid_namespaces.7.html))
-
-To make this easier to type out, you could add a
-[shell alias](https://shapeshed.com/unix-alias/):
+Start by adding a [shell alias](https://shapeshed.com/unix-alias/):
 
 ```sh
 alias mydocker='docker build -t mydocker . && docker run --cap-add="SYS_ADMIN" mydocker'
 ```
 
-You can then execute your program like this:
+You can now execute your program like this:
 
 ```sh
 mydocker run ubuntu:latest /usr/local/bin/docker-explorer echo hey
