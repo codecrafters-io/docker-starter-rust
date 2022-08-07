@@ -5,6 +5,8 @@
 # failures.
 #
 # DON'T EDIT THIS!
+cargo-features = ["edition2021"]
+
 [package]
 name = "docker-starter-rust"
 version = "0.1.0"

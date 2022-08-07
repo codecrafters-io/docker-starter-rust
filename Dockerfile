@@ -8,6 +8,7 @@ RUN chmod +x /usr/local/bin/docker-explorer
 # Grab the dependencies and compile them as they dont change much
 COPY Cargo.toml /app/Cargo.toml
 COPY Cargo.lock /app/Cargo.lock
+COPY rust-toolchain.toml /app/rust-toolchain.toml
 
 RUN mkdir /app/src
 RUN echo 'fn main() { println!("Hello World!"); }' > /app/src/main.rs
